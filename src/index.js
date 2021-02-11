@@ -2,6 +2,7 @@
 
 function assign(target, source) {
 	for (let i in source) {
+		if (target[i] == '__proto__' || target[i] == 'prototype' || target[i] == 'constructor') return {};
 		if (Array.isArray(target[i])) {
 			concat(target[i], source[i]);
 		} else if (typeof(target[i]) == "object") {
